@@ -28,7 +28,7 @@ namespace E_Ticaret
 
         static void UrunListele()
         {
-            
+            string sorguMetni = "SELECT * FROM UrunFiyati WHERE @ "
         }
     }
 }

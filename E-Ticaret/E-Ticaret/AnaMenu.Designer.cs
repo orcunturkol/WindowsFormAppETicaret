@@ -32,15 +32,15 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.fiyat2 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.katalogResmi2 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.fiyat3 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.katalogResmi3 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.fiyat1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.katalogResmi1 = new System.Windows.Forms.PictureBox();
             this.userBox = new System.Windows.Forms.PictureBox();
             this.sepetBox = new System.Windows.Forms.PictureBox();
             this.kategorilerGroupBox = new System.Windows.Forms.GroupBox();
@@ -52,12 +52,13 @@
             this.sepetimLabel = new System.Windows.Forms.Label();
             this.araLabel = new System.Windows.Forms.Label();
             this.araBox = new System.Windows.Forms.TextBox();
+            this.yonetimPaneliButton = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.katalogResmi2)).BeginInit();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.katalogResmi3)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.katalogResmi1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepetBox)).BeginInit();
             this.kategorilerGroupBox.SuspendLayout();
@@ -67,7 +68,7 @@
             // 
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.fiyat2);
-            this.groupBox2.Controls.Add(this.pictureBox2);
+            this.groupBox2.Controls.Add(this.katalogResmi2);
             this.groupBox2.Location = new System.Drawing.Point(471, 205);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(400, 325);
@@ -94,20 +95,20 @@
             this.fiyat2.TabIndex = 9;
             this.fiyat2.Text = "fiyat";
             // 
-            // pictureBox2
+            // katalogResmi2
             // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(39, 39);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(320, 240);
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.katalogResmi2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.katalogResmi2.Location = new System.Drawing.Point(39, 39);
+            this.katalogResmi2.Name = "katalogResmi2";
+            this.katalogResmi2.Size = new System.Drawing.Size(320, 240);
+            this.katalogResmi2.TabIndex = 6;
+            this.katalogResmi2.TabStop = false;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.fiyat3);
-            this.groupBox3.Controls.Add(this.pictureBox3);
+            this.groupBox3.Controls.Add(this.katalogResmi3);
             this.groupBox3.Location = new System.Drawing.Point(934, 205);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(400, 325);
@@ -134,20 +135,20 @@
             this.fiyat3.TabIndex = 9;
             this.fiyat3.Text = "fiyat";
             // 
-            // pictureBox3
+            // katalogResmi3
             // 
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(36, 39);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(320, 240);
-            this.pictureBox3.TabIndex = 7;
-            this.pictureBox3.TabStop = false;
+            this.katalogResmi3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.katalogResmi3.Location = new System.Drawing.Point(36, 39);
+            this.katalogResmi3.Name = "katalogResmi3";
+            this.katalogResmi3.Size = new System.Drawing.Size(320, 240);
+            this.katalogResmi3.TabIndex = 7;
+            this.katalogResmi3.TabStop = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.fiyat1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.katalogResmi1);
             this.groupBox1.Location = new System.Drawing.Point(12, 205);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(400, 325);
@@ -174,15 +175,15 @@
             this.fiyat1.TabIndex = 9;
             this.fiyat1.Text = "fiyat";
             // 
-            // pictureBox1
+            // katalogResmi1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(34, 34);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(320, 240);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.katalogResmi1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.katalogResmi1.Location = new System.Drawing.Point(34, 34);
+            this.katalogResmi1.Name = "katalogResmi1";
+            this.katalogResmi1.Size = new System.Drawing.Size(320, 240);
+            this.katalogResmi1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.katalogResmi1.TabIndex = 5;
+            this.katalogResmi1.TabStop = false;
             // 
             // userBox
             // 
@@ -307,11 +308,22 @@
             this.araBox.Size = new System.Drawing.Size(316, 38);
             this.araBox.TabIndex = 11;
             // 
+            // yonetimPaneliButton
+            // 
+            this.yonetimPaneliButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.yonetimPaneliButton.Location = new System.Drawing.Point(12, 12);
+            this.yonetimPaneliButton.Name = "yonetimPaneliButton";
+            this.yonetimPaneliButton.Size = new System.Drawing.Size(137, 45);
+            this.yonetimPaneliButton.TabIndex = 19;
+            this.yonetimPaneliButton.Text = "Yönetim Paneli";
+            this.yonetimPaneliButton.UseVisualStyleBackColor = true;
+            // 
             // AnaMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1371, 721);
+            this.Controls.Add(this.yonetimPaneliButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -327,13 +339,13 @@
             this.Load += new System.EventHandler(this.AnaMenu_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.katalogResmi2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.katalogResmi3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.katalogResmi1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sepetBox)).EndInit();
             this.kategorilerGroupBox.ResumeLayout(false);
@@ -348,15 +360,15 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label fiyat2;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox katalogResmi2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label fiyat3;
-        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox katalogResmi3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label fiyat1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox katalogResmi1;
         private System.Windows.Forms.PictureBox userBox;
         private System.Windows.Forms.PictureBox sepetBox;
         private System.Windows.Forms.GroupBox kategorilerGroupBox;
@@ -368,6 +380,7 @@
         private System.Windows.Forms.Label sepetimLabel;
         private System.Windows.Forms.Label araLabel;
         private System.Windows.Forms.TextBox araBox;
+        private System.Windows.Forms.Button yonetimPaneliButton;
     }
 }
 
