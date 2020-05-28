@@ -118,6 +118,7 @@
             this.Controls.Add(this.sifreTextBox);
             this.Controls.Add(this.kullaniciAdiTextBox);
             this.Name = "YoneticiGiris";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yönetici Giriş Paneli";
             this.Load += new System.EventHandler(this.YoneticiGiris_Load);
             this.ResumeLayout(false);

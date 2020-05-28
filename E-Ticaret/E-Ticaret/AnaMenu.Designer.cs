@@ -313,7 +313,7 @@
             this.yonetimPaneliButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.yonetimPaneliButton.Location = new System.Drawing.Point(12, 12);
             this.yonetimPaneliButton.Name = "yonetimPaneliButton";
-            this.yonetimPaneliButton.Size = new System.Drawing.Size(137, 45);
+            this.yonetimPaneliButton.Size = new System.Drawing.Size(156, 45);
             this.yonetimPaneliButton.TabIndex = 19;
             this.yonetimPaneliButton.Text = "Yönetim Paneli";
             this.yonetimPaneliButton.UseVisualStyleBackColor = true;
@@ -323,7 +323,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 721);
+            this.ClientSize = new System.Drawing.Size(1371, 1055);
             this.Controls.Add(this.yonetimPaneliButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
@@ -336,6 +336,7 @@
             this.Controls.Add(this.araLabel);
             this.Controls.Add(this.araBox);
             this.Name = "AnaMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.AnaMenu_Load);
             this.groupBox2.ResumeLayout(false);

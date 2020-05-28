@@ -8,3 +8,4 @@ C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E-Ticaret.exe
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E-Ticaret.pdb
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.AnaMenu.resources
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.YoneticiGiris.resources
+C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.YonetimPaneli.resources

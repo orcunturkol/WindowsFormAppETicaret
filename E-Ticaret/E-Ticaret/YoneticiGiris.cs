@@ -31,6 +31,11 @@ namespace E_Ticaret
 
         private void girisYapButton_Click(object sender, EventArgs e)
         {
+            GirisKontrol();
+        }
+
+        private void GirisKontrol()
+        {
             using (sqlConnection = new SqlConnection(connectionString))
             {
                 //Kullanıcı girişini kontrol etmek için veritabanına bir sorgu gönderildi
@@ -40,7 +45,10 @@ namespace E_Ticaret
                 DataTable dt = new DataTable();
                 sqlDataAdapter.Fill(dt);
                 //Gelen sorguda bir değer var ise böyle bir kullanıcı adı ve şifresi var demektir.
-                if (dt.Rows[0][0].ToString() == "1") MessageBox.Show("Kullanıcı Girişi Başarıyla Yapıldı.");
+                YonetimPaneli yp = new YonetimPaneli();
+                if (dt.Rows[0][0].ToString() == "1") {
+                    yp.Show(); this.Hide();
+                }
                 else MessageBox.Show("Kullanıcı Girişi Başarısız.");
             }
         }
