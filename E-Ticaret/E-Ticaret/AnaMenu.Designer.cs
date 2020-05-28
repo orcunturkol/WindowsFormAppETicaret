@@ -307,7 +307,7 @@
             this.araBox.Size = new System.Drawing.Size(316, 38);
             this.araBox.TabIndex = 11;
             // 
-            // Form1
+            // AnaMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -322,8 +322,9 @@
             this.Controls.Add(this.sepetimLabel);
             this.Controls.Add(this.araLabel);
             this.Controls.Add(this.araBox);
-            this.Name = "Form1";
+            this.Name = "AnaMenu";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.AnaMenu_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
