@@ -28,7 +28,13 @@ namespace E_Ticaret
 
         static void UrunListele()
         {
-            string sorguMetni = "SELECT * FROM UrunFiyati WHERE @ "
+            //string sorguMetni = "SELECT * FROM UrunFiyati WHERE @ "
+        }
+
+        private void yonetimPaneliButton_Click(object sender, EventArgs e)
+        {
+            YoneticiGiris yoneticiGiris = new YoneticiGiris();
+            yoneticiGiris.Show();
         }
     }
 }

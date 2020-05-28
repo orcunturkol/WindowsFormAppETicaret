@@ -317,6 +317,7 @@
             this.yonetimPaneliButton.TabIndex = 19;
             this.yonetimPaneliButton.Text = "Yönetim Paneli";
             this.yonetimPaneliButton.UseVisualStyleBackColor = true;
+            this.yonetimPaneliButton.Click += new System.EventHandler(this.yonetimPaneliButton_Click);
             // 
             // AnaMenu
             // 

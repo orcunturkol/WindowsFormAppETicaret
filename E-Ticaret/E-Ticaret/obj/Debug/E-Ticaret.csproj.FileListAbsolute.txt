@@ -2,9 +2,9 @@ C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\bin\Debug\E-Ticaret.exe.con
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\bin\Debug\E-Ticaret.exe
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\bin\Debug\E-Ticaret.pdb
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E-Ticaret.csprojAssemblyReference.cache
-C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.Form1.resources
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.Properties.Resources.resources
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E-Ticaret.csproj.GenerateResource.cache
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E-Ticaret.exe
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E-Ticaret.pdb
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.AnaMenu.resources
+C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.YoneticiGiris.resources
