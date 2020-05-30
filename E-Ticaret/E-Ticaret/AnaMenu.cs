@@ -28,26 +28,7 @@ namespace E_Ticaret
 
         private void AnaMenu_Load(object sender, EventArgs e)
         {
-            using(sqlConnection = new SqlConnection(connectionString))
-            {
-                String sorguKomutu = "SELECT UrunAdi, UrunFotograf, UrunFiyati FROM Urunler WHERE UrunId=12";
-                SqlCommand cmd = new SqlCommand(sorguKomutu, sqlConnection);
-                sqlConnection.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                dr.Read();
-                
-                if (dr.HasRows)
-                {
-                    fiyat1.Text = dr[2].ToString();
-                    urunAdiLabel.Text = dr[0].ToString();
-                    byte[] data = (byte[])dr[1];
-                    using (MemoryStream stream = new MemoryStream(data))
-                    {
-                        katalogResmi1.Image = new Bitmap(stream);
-                    }
-                }
-                sqlConnection.Close();
-            }
+           
         }
 
         static void UrunListele()

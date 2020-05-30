@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Configuration;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.IO;
+using System.Configuration;
 
 namespace E_Ticaret
 {
@@ -19,11 +18,8 @@ namespace E_Ticaret
         //Bağlantı Metni
         String connectionString = ConfigurationManager.ConnectionStrings["ETicaretVeriTabani"].ConnectionString;
         //Referanslar
-        SqlConnection sqlConnection;
-        SqlCommand cmd;
-        byte[] data;
-        //Değişkenler
-        String fileName;
+        MySqlConnection sqlConnection;
+        MySqlCommand cmd;
         public YonetimPaneli()
         {
             InitializeComponent();
@@ -35,70 +31,80 @@ namespace E_Ticaret
 
         }
 
-        private void fotografSectirme()
-        {
-            //Bilgisayarımızdan bir dosya seçebilmek için FileDialog nesnesini kullanıyoruz
-            using (OpenFileDialog ofd = new OpenFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true, Multiselect = false })
-            {             
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    fileName = ofd.FileName;
-                    dosyaAdiLabel.Text = fileName;
-                    urunFotografi.Image = Image.FromFile(fileName);
-                }
-            }
-        }
-        void fotografCevir()
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                Image myImage = Image.FromFile(dosyaAdiLabel.Text);
-                myImage.Save(ms, ImageFormat.Bmp);
-                data = ms.ToArray();
-            }
-        }
-
-        private void urunuYukle()
-        {
-            using(sqlConnection = new SqlConnection(connectionString))
-            {
-                string sorguKomutu = "INSERT INTO Urunler (UrunAdi, StokSayisi, KategoriId, UrunFotograf, UrunFiyati) VALUES (@urunAdi, @stokSayisi, @kategoriId, '@urunFotograf', @urunFiyati)";
-                cmd = new SqlCommand(sorguKomutu, sqlConnection);
-                //Sorgudaki parametleri tanımlama
-                cmd.Parameters.AddWithValue("@urunAdi", urunAdiTextBox.Text);
-                cmd.Parameters.AddWithValue("@stokSayisi", Convert.ToInt32(stokSayisiTextBox.Text));
-                cmd.Parameters.AddWithValue("@kategoriId", Convert.ToInt32(kategoriComboBox.Text));
-                //Yüklenen resmi binary'e çevirme metodunu kullanıldı
-                fotografCevir();
-                cmd.Parameters.AddWithValue("@urunFotograf", data);
-                cmd.Parameters.AddWithValue("@urunFiyati", Convert.ToDecimal(urunFiyatıTextBox.Text));
-                try
-                {
-                    sqlConnection.Open();
-                    int kontrol = cmd.ExecuteNonQuery();
-                    if (kontrol > 0) MessageBox.Show("Ürünleriniz başarıyla veritabanına yüklendi");
-                    else MessageBox.Show("Ürünleriniz veritabanına yüklenirken bir hata ile karşılaşıldı. Lütfen tekrar deneyiniz");
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Bir hata ile karşılaşıldı: " + e.Message);;
-                }                  
-                sqlConnection.Close();
-            }
-        }
+       
         private void YonetimPaneli_Load(object sender, EventArgs e)
         {
-            
+            try
+            {
+                string sorgu = "SELECT * FROM Kategoriler";
+                using(sqlConnection = new MySqlConnection(connectionString))
+                {
+                    MySqlDataAdapter da = new MySqlDataAdapter(sorgu, sqlConnection);
+                    sqlConnection.Open();
+                    DataSet ds = new DataSet();
+                    da.Fill(ds, "Kategori");
+                    kategoriComboBox.DisplayMember = "KategoriAdi";
+                    kategoriComboBox.ValueMember = "KategoriId";
+                    kategoriComboBox.DataSource = ds.Tables["Kategori"];
+                }
+            }
+            catch (Exception ex)
+            {
+                // write exception info to log or anything else
+                MessageBox.Show("Error occured!");
+            }
         }
 
         private void urunFotografiButton_Click(object sender, EventArgs e)
         {
-            fotografSectirme();
+            //Bilgisayarımızdan bir dosya seçebilmek için FileDialog nesnesini kullanıyoruz
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Choose Image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                urunFotografi.Image = Image.FromFile(opf.FileName);
+            }
+
         }
 
         private void yukleButton_Click(object sender, EventArgs e)
         {
-            urunuYukle();
+            //Seçilen fotoğraf byte formatına çeviriliyor
+            sqlConnection = new MySqlConnection(connectionString);
+            MemoryStream ms = new MemoryStream();
+            urunFotografi.Image.Save(ms, urunFotografi.Image.RawFormat);
+            byte[] img = ms.ToArray();
+
+            String sorgu = "INSERT INTO Urunler(UrunAdi, UrunFiyati, StokSayisi, UrunFotograf) VALUES(@urunAdi, @urunFiyati, @stokSayisi, @img)";
+
+            sqlConnection.Open();
+
+            cmd = new MySqlCommand(sorgu, sqlConnection);
+
+            cmd.Parameters.Add("@urunAdi", MySqlDbType.VarChar, 255);
+            cmd.Parameters.Add("@urunFiyati", MySqlDbType.Double);
+            cmd.Parameters.Add("@stokSayisi", MySqlDbType.Int32);
+            cmd.Parameters.Add("@img", MySqlDbType.Blob);
+
+            cmd.Parameters["@UrunAdi"].Value = urunAdiTextBox.Text;
+            cmd.Parameters["@UrunFiyati"].Value = Convert.ToInt32(stokSayisiTextBox.Text);
+            cmd.Parameters["@StokSayisi"].Value = Convert.ToDouble(urunFiyatıTextBox.Text);
+            cmd.Parameters["@img"].Value = img;
+            try
+            {
+             if (cmd.ExecuteNonQuery() == 1) MessageBox.Show("Ürün, veritabanına başarıyla eklendi.");
+             else MessageBox.Show("Başarısız. Lütfen tekrar deneyiniz.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message);
+            }
+            sqlConnection.Close();
+        }
+
+        private void urunFiyatıTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

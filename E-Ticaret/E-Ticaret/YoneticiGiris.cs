@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -18,7 +19,7 @@ namespace E_Ticaret
         String connectionString = ConfigurationManager.ConnectionStrings["ETicaretVeriTabani"].ConnectionString;
 
         //Referanslar
-        SqlConnection sqlConnection;
+        MySqlConnection sqlConnection;
         public YoneticiGiris()
         {
             InitializeComponent();
@@ -36,11 +37,11 @@ namespace E_Ticaret
 
         private void GirisKontrol()
         {
-            using (sqlConnection = new SqlConnection(connectionString))
+            using (sqlConnection = new MySqlConnection(connectionString))
             {
                 //Kullanıcı girişini kontrol etmek için veritabanına bir sorgu gönderildi
-                String sorguKomutu = "SELECT COUNT(*) FROM Yoneticiler WHERE YoneticiKullaniciAdi='" + kullaniciAdiTextBox.Text + "' AND YoneticiSifre= '" + sifreTextBox.Text + "'";
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sorguKomutu, sqlConnection);
+                String sorguKomutu = "SELECT COUNT(*) FROM Yoneticiler WHERE YoneticiKullanici='" + kullaniciAdiTextBox.Text + "' AND YoneticiSifre= '" + sifreTextBox.Text + "'";
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(sorguKomutu, sqlConnection);
                 //Sanal bir tablo yaratıldı
                 DataTable dt = new DataTable();
                 sqlDataAdapter.Fill(dt);
