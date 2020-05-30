@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace E_Ticaret
 {
@@ -19,7 +20,9 @@ namespace E_Ticaret
         String connectionString = ConfigurationManager.ConnectionStrings["ETicaretVeriTabani"].ConnectionString;
 
         //Referanslar
-        SqlConnection sqlConnection;
+        MySqlConnection sqlConnection;
+        MySqlCommand command;
+        MySqlDataReader dr;
 
         public AnaMenu()
         {
@@ -28,12 +31,29 @@ namespace E_Ticaret
 
         private void AnaMenu_Load(object sender, EventArgs e)
         {
-           
+            UrunListele();
         }
 
-        static void UrunListele()
+         void UrunListele()
         {
-            //string sorguMetni = "SELECT * FROM UrunFiyati WHERE @ "
+            using(sqlConnection = new MySqlConnection(connectionString))
+            {
+                string sorguMetni = "SELECT UrunAdi, UrunFiyati, UrunFotograf FROM Urunler WHERE UrunId=1";
+                sqlConnection.Open();
+                command = new MySqlCommand(sorguMetni, sqlConnection);
+                dr = command.ExecuteReader();
+                dr.Read();
+                if (dr.HasRows)
+                {
+                    fiyat1.Text = dr[1].ToString();
+                    urunAdiLabel.Text = dr[0].ToString();
+                    byte[] img = ((byte[])dr[2]);
+                    MemoryStream memoryStream = new MemoryStream(img);
+                    katalogResmi1.Image = Image.FromStream(memoryStream);
+                }
+                sqlConnection.Close();
+            }
+           
         }
 
         private void yonetimPaneliButton_Click(object sender, EventArgs e)
