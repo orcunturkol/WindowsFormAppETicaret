@@ -37,7 +37,7 @@ namespace E_Ticaret
             try
             {
                 string sorgu = "SELECT * FROM Kategoriler";
-                using(sqlConnection = new MySqlConnection(connectionString))
+                using (sqlConnection = new MySqlConnection(connectionString))
                 {
                     MySqlDataAdapter da = new MySqlDataAdapter(sorgu, sqlConnection);
                     sqlConnection.Open();
@@ -52,6 +52,34 @@ namespace E_Ticaret
             {
                 // write exception info to log or anything else
                 MessageBox.Show("Error occured!");
+            }
+
+            Listele();
+
+        }
+
+        private void Listele()
+        {
+            using (sqlConnection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    string sorgu2 = "SELECT UrunId, UrunAdi, StokSayisi FROM Urunler";
+                    cmd = new MySqlCommand(sorgu2);
+                    MySqlDataAdapter dt = new MySqlDataAdapter();
+                    cmd.Connection = sqlConnection;
+                    sqlConnection.Open();
+                    dt.SelectCommand = cmd;
+
+                    DataTable dTable = new DataTable();
+                    dt.Fill(dTable);
+                    urunlerDataGridView.DataSource = dTable;
+                    sqlConnection.Close();
+                }
+                catch (Exception)
+                {
+                    //     
+                }
             }
         }
 
@@ -87,9 +115,10 @@ namespace E_Ticaret
             cmd.Parameters.Add("@img", MySqlDbType.Blob);
 
             cmd.Parameters["@UrunAdi"].Value = urunAdiTextBox.Text;
-            cmd.Parameters["@UrunFiyati"].Value = Convert.ToInt32(stokSayisiTextBox.Text);
-            cmd.Parameters["@StokSayisi"].Value = Convert.ToDouble(urunFiyatıTextBox.Text);
+            cmd.Parameters["@UrunFiyati"].Value = Convert.ToDouble(urunFiyatıTextBox.Text);
+            cmd.Parameters["@StokSayisi"].Value = Convert.ToInt32(stokSayisiTextBox.Text);
             cmd.Parameters["@img"].Value = img;
+
             try
             {
              if (cmd.ExecuteNonQuery() == 1) MessageBox.Show("Ürün, veritabanına başarıyla eklendi.");
@@ -100,11 +129,40 @@ namespace E_Ticaret
                 MessageBox.Show("Hata: " + ex.Message);
             }
             sqlConnection.Close();
+            Listele();
         }
 
         private void urunFiyatıTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (sqlConnection = new MySqlConnection(connectionString))
+                {
+                    int rowIndex = urunlerDataGridView.CurrentCell.RowIndex;
+                    String sorgu3 = "DELETE FROM Urunler WHERE UrunId="+ urunlerDataGridView.CurrentRow.Cells[0].Value.ToString();
+                    cmd = new MySqlCommand(sorgu3, sqlConnection);
+                    sqlConnection.Open();
+                    cmd.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+        
+            }
+                    Listele();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AnaMenu anaMenu = new AnaMenu();
+            anaMenu.Show();
+            this.Hide();
         }
     }
 }

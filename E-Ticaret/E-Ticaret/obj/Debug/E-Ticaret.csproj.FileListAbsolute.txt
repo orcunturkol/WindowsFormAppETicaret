@@ -37,3 +37,7 @@ C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\bin\Debug\System.Buffers.xm
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\bin\Debug\System.Memory.xml
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.KayıtOl.resources
+C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.KullaniciGiris.resources
+C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.Sepet.resources
+C:\Users\Orcun\Documents\C# repo\E-Ticaret\E-Ticaret\obj\Debug\E_Ticaret.Siparisler.resources

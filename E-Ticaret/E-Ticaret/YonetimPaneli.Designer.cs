@@ -39,7 +39,11 @@
             this.urunFotografi = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.kategoriComboBox = new System.Windows.Forms.ComboBox();
+            this.urunlerDataGridView = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.urunFotografi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // urunFiyatıTextBox
@@ -161,11 +165,43 @@
             this.kategoriComboBox.Size = new System.Drawing.Size(188, 28);
             this.kategoriComboBox.TabIndex = 11;
             // 
+            // urunlerDataGridView
+            // 
+            this.urunlerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.urunlerDataGridView.Location = new System.Drawing.Point(45, 422);
+            this.urunlerDataGridView.Name = "urunlerDataGridView";
+            this.urunlerDataGridView.Size = new System.Drawing.Size(380, 150);
+            this.urunlerDataGridView.TabIndex = 12;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(455, 475);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 33);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Sil";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(843, 475);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 47);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Ana Menü";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // YonetimPaneli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 661);
+            this.ClientSize = new System.Drawing.Size(1028, 590);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.urunlerDataGridView);
             this.Controls.Add(this.kategoriComboBox);
             this.Controls.Add(this.urunFotografi);
             this.Controls.Add(this.yukleButton);
@@ -179,9 +215,11 @@
             this.Controls.Add(this.urunFiyatıTextBox);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "YonetimPaneli";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yönetim Paneli";
             this.Load += new System.EventHandler(this.YonetimPaneli_Load);
             ((System.ComponentModel.ISupportInitialize)(this.urunFotografi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +238,8 @@
         private System.Windows.Forms.PictureBox urunFotografi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox kategoriComboBox;
+        private System.Windows.Forms.DataGridView urunlerDataGridView;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
